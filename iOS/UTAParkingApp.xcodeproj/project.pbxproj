@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		563A5A5823342C47008154DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 563A5A5723342C47008154DA /* GoogleService-Info.plist */; };
+		564326A323329F6F00C81713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326A223329F6F00C81713 /* AppDelegate.swift */; };
+		564326A823329F6F00C81713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564326A623329F6F00C81713 /* Main.storyboard */; };
+		564326AA23329F7200C81713 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 564326A923329F7200C81713 /* Assets.xcassets */; };
+		564326AD23329F7200C81713 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564326AB23329F7200C81713 /* LaunchScreen.storyboard */; };
+		564326B82333DE8500C81713 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326B72333DE8500C81713 /* loginViewController.swift */; };
+		564326BA2334054B00C81713 /* registrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326B92334054B00C81713 /* registrationViewController.swift */; };
+		564326BC23340E4900C81713 /* parkingLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326BB23340E4900C81713 /* parkingLocationViewController.swift */; };
+		564326BE23340E7300C81713 /* parkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326BD23340E7300C81713 /* parkingViewController.swift */; };
+		564326C023340ED100C81713 /* notificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564326BF23340ED100C81713 /* notificationViewController.swift */; };
+		DD61C71FE1EED42F56FABD91 /* Pods_UTAParkingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1092408D1A894155C94BC2A /* Pods_UTAParkingApp.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		563A5A5723342C47008154DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5643269F23329F6F00C81713 /* UTAParkingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTAParkingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		564326A223329F6F00C81713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		564326A723329F6F00C81713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		564326A923329F7200C81713 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		564326AC23329F7200C81713 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		564326AE23329F7200C81713 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		564326B72333DE8500C81713 /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		564326B92334054B00C81713 /* registrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registrationViewController.swift; sourceTree = "<group>"; };
+		564326BB23340E4900C81713 /* parkingLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkingLocationViewController.swift; sourceTree = "<group>"; };
+		564326BD23340E7300C81713 /* parkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkingViewController.swift; sourceTree = "<group>"; };
+		564326BF23340ED100C81713 /* notificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationViewController.swift; sourceTree = "<group>"; };
+		67955A5AF50FF08DB372835F /* Pods-UTAParkingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTAParkingApp.debug.xcconfig"; path = "Target Support Files/Pods-UTAParkingApp/Pods-UTAParkingApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D1092408D1A894155C94BC2A /* Pods_UTAParkingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UTAParkingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D14B71C4A79B275D95B08840 /* Pods-UTAParkingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UTAParkingApp.release.xcconfig"; path = "Target Support Files/Pods-UTAParkingApp/Pods-UTAParkingApp.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5643269C23329F6F00C81713 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD61C71FE1EED42F56FABD91 /* Pods_UTAParkingApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		272050A682AA368F85B96A3C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D1092408D1A894155C94BC2A /* Pods_UTAParkingApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5643269623329F6E00C81713 = {
+			isa = PBXGroup;
+			children = (
+				564326B423329FBB00C81713 /* Model */,
+				564326B623329FCE00C81713 /* Controller */,
+				564326A123329F6F00C81713 /* UTAParkingApp */,
+				564326A023329F6F00C81713 /* Products */,
+				FFF9EFA350D726E3DA4950AA /* Pods */,
+				272050A682AA368F85B96A3C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		564326A023329F6F00C81713 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5643269F23329F6F00C81713 /* UTAParkingApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		564326A123329F6F00C81713 /* UTAParkingApp */ = {
+			isa = PBXGroup;
+			children = (
+				564326A223329F6F00C81713 /* AppDelegate.swift */,
+				564326A923329F7200C81713 /* Assets.xcassets */,
+				563A5A5723342C47008154DA /* GoogleService-Info.plist */,
+				564326AE23329F7200C81713 /* Info.plist */,
+			);
+			path = UTAParkingApp;
+			sourceTree = "<group>";
+		};
+		564326B423329FBB00C81713 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				564326B523329FC400C81713 /* View */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		564326B523329FC400C81713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				564326A623329F6F00C81713 /* Main.storyboard */,
+				564326AB23329F7200C81713 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		564326B623329FCE00C81713 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				564326B72333DE8500C81713 /* loginViewController.swift */,
+				564326B92334054B00C81713 /* registrationViewController.swift */,
+				564326BB23340E4900C81713 /* parkingLocationViewController.swift */,
+				564326BD23340E7300C81713 /* parkingViewController.swift */,
+				564326BF23340ED100C81713 /* notificationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FFF9EFA350D726E3DA4950AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67955A5AF50FF08DB372835F /* Pods-UTAParkingApp.debug.xcconfig */,
+				D14B71C4A79B275D95B08840 /* Pods-UTAParkingApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5643269E23329F6F00C81713 /* UTAParkingApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 564326B123329F7200C81713 /* Build configuration list for PBXNativeTarget "UTAParkingApp" */;
+			buildPhases = (
+				A596D3867035C6AAF4E740E0 /* [CP] Check Pods Manifest.lock */,
+				5643269B23329F6F00C81713 /* Sources */,
+				5643269C23329F6F00C81713 /* Frameworks */,
+				5643269D23329F6F00C81713 /* Resources */,
+				210D45324B566D45F4BD6478 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UTAParkingApp;
+			productName = UTAParkingApp;
+			productReference = 5643269F23329F6F00C81713 /* UTAParkingApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5643269723329F6E00C81713 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Benjamin Anoh";
+				TargetAttributes = {
+					5643269E23329F6F00C81713 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 5643269A23329F6E00C81713 /* Build configuration list for PBXProject "UTAParkingApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5643269623329F6E00C81713;
+			productRefGroup = 564326A023329F6F00C81713 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5643269E23329F6F00C81713 /* UTAParkingApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5643269D23329F6F00C81713 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				564326AD23329F7200C81713 /* LaunchScreen.storyboard in Resources */,
+				563A5A5823342C47008154DA /* GoogleService-Info.plist in Resources */,
+				564326AA23329F7200C81713 /* Assets.xcassets in Resources */,
+				564326A823329F6F00C81713 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		210D45324B566D45F4BD6478 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTAParkingApp/Pods-UTAParkingApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UTAParkingApp/Pods-UTAParkingApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UTAParkingApp/Pods-UTAParkingApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A596D3867035C6AAF4E740E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UTAParkingApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5643269B23329F6F00C81713 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				564326A323329F6F00C81713 /* AppDelegate.swift in Sources */,
+				564326B82333DE8500C81713 /* loginViewController.swift in Sources */,
+				564326C023340ED100C81713 /* notificationViewController.swift in Sources */,
+				564326BE23340E7300C81713 /* parkingViewController.swift in Sources */,
+				564326BC23340E4900C81713 /* parkingLocationViewController.swift in Sources */,
+				564326BA2334054B00C81713 /* registrationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		564326A623329F6F00C81713 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				564326A723329F6F00C81713 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		564326AB23329F7200C81713 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				564326AC23329F7200C81713 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		564326AF23329F7200C81713 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		564326B023329F7200C81713 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		564326B223329F7200C81713 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67955A5AF50FF08DB372835F /* Pods-UTAParkingApp.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F5Z4L64M6V;
+				INFOPLIST_FILE = UTAParkingApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.uta.UTAParkingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		564326B323329F7200C81713 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D14B71C4A79B275D95B08840 /* Pods-UTAParkingApp.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = F5Z4L64M6V;
+				INFOPLIST_FILE = UTAParkingApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.uta.UTAParkingApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5643269A23329F6E00C81713 /* Build configuration list for PBXProject "UTAParkingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				564326AF23329F7200C81713 /* Debug */,
+				564326B023329F7200C81713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		564326B123329F7200C81713 /* Build configuration list for PBXNativeTarget "UTAParkingApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				564326B223329F7200C81713 /* Debug */,
+				564326B323329F7200C81713 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5643269723329F6E00C81713 /* Project object */;
+}

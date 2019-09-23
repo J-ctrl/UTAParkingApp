@@ -1,0 +1,47 @@
+dependencies: \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FValueEventRegistration.m \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseDatabase.build/module.modulemap \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FValueEventRegistration.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FEventRegistration.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FChange.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseReference.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataSnapshot.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabase.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDatabaseQuery.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRDataEventType.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRMutableData.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRServerValue.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Public/FIRTransactionResult.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FIndexedNode.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/FIndex.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/FNamedNode.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Snapshot/FNode.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/Utilities/FPath.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FTypedefs_Private.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Utilities/FTypedefs.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FCancelEvent.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FEvent.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/View/FDataEvent.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Utilities/Tuples/FTupleUserCallback.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FQueryParams.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDataSnapshot_Private.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Api/Private/FIRDatabaseQuery_Private.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FRepo.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FPersistentConnection.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Realtime/FConnection.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Realtime/FWebSocketConnection.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/third_party/SocketRocket/FSRWebSocket.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Utilities/FUtilities.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/FirebaseCore.build/module.modulemap \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Private/FIRLogger.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Public/FIROptions.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Public/FirebaseCore.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Public/FIRLoggerLevel.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Public/FIRConfiguration.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseCore/Firebase/Core/Public/FIRApp.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/Target\ Support\ Files/FirebaseCore/FirebaseCore-umbrella.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Utilities/FParsedUrl.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoInfo.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FRepoManager.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Api/FIRDatabaseConfig.h \
+  /Users/kadjoanoh/Documents/UTAParkingApp/Pods/FirebaseDatabase/Firebase/Database/Core/FQuerySpec.h

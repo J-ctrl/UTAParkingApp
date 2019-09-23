@@ -1,0 +1,10 @@
+version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
+options: "fa96b2c5bd293d81a0f6b3f3532caa5c"
+build_time: [1569212232, 52677000]
+inputs:
+  "/Users/kadjoanoh/Documents/UTAParkingApp/UTAParkingApp/AppDelegate.swift": [1568942122, 111507058]
+  "/Users/kadjoanoh/Documents/UTAParkingApp/Controller/loginViewController.swift": [1569112916, 678572655]
+  "/Users/kadjoanoh/Documents/UTAParkingApp/Controller/notificationViewController.swift": [1568941686, 474921703]
+  "/Users/kadjoanoh/Documents/UTAParkingApp/Controller/parkingViewController.swift": [1568921344, 405193806]
+  "/Users/kadjoanoh/Documents/UTAParkingApp/Controller/parkingLocationViewController.swift": [1568992677, 654992104]
+  "/Users/kadjoanoh/Documents/UTAParkingApp/Controller/registrationViewController.swift": [1569112074, 867646813]

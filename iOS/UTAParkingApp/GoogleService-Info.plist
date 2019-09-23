@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>853755022509-irqi30h95o7vi0r8vb6fvncil9csfvf9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.853755022509-irqi30h95o7vi0r8vb6fvncil9csfvf9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCOqSiSUO71NOAAPOnbNQ1AQNIpRZSsoUk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>853755022509</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.uta.UTAParkingApp</string>
+	<key>PROJECT_ID</key>
+	<string>uta-parking-d173b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>uta-parking-d173b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:853755022509:ios:a07cdd75bb9eae8e7aca24</string>
+	<key>DATABASE_URL</key>
+	<string>https://uta-parking-d173b.firebaseio.com</string>
+</dict>
+</plist>
