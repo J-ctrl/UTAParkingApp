@@ -21,19 +21,27 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Model> arrayList = new ArrayList<Model>();
 
 
-
+    //OnCreate is in charge of setting all the titles, description, and pictures for each parking lot.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6"}; //pictures of each lot
-        description = new String[]{"parking lot detail a", "parking lot detail b", "parking lot detail c", "parking lot detail d", "parking lot detail e", "parking lot detail f"};
-        icon = new int[]{ R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
+        //Array for each parking lot's name/title
+        title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6", "Parking Lot #7"};
+
+        //Array for each parking lot's description
+        description = new String[]{"parking lot detail #A", "parking lot detail #B", "parking lot detail #C", "parking lot detail #D", "parking lot detail #E", "parking lot detail #F", "parking lot detail #G"};
+
+        //Array for each parking lot's description
+        icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
+
 
         listView = findViewById(R.id.listView);
 
-        for (int i = 0; i < title.length; i++) {
+        //This loop creates the list of parking lots based on the length of the title array
+        for (int i = 0; i < title.length; i++)
+        {
             Model model = new Model(title[i], description[i], icon[i]);
             //Bind all strings in an array
             arrayList.add(model);
@@ -47,10 +55,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
 
+        getMenuInflater().inflate(R.menu.menu, menu);
         MenuItem myActionMenuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView)myActionMenuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -86,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(id == R.id.action_settings)
         {
-            //functionality here
+            //future functionality here
             return true;
         }
 

@@ -24,8 +24,6 @@ public class ListViewAdapter extends BaseAdapter {
 
 
     //constructor
-
-
     public ListViewAdapter(Context context, List<Model> modellist) {
         mContext = context;
         this.modellist = modellist;
@@ -34,13 +32,14 @@ public class ListViewAdapter extends BaseAdapter {
         this.arrayList.addAll(modellist);
     }
 
+
     public class ViewHolder{
         TextView mTitleTv, mDescTv;
         ImageView mIconIv;
-
     }
 
 
+    //Getter methods for size
     @Override
     public int getCount() {
         return modellist.size();
@@ -59,6 +58,7 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
+
         if (view==null)
         {
             holder = new ViewHolder();
@@ -79,6 +79,7 @@ public class ListViewAdapter extends BaseAdapter {
         //set the results into textviews
         holder.mTitleTv.setText(modellist.get(position).getTitle());
         holder.mDescTv.setText(modellist.get(position).getDesc());
+
         //set the results in imageview
         holder.mIconIv.setImageResource(modellist.get(position).getIcon());
 
@@ -95,6 +96,7 @@ public class ListViewAdapter extends BaseAdapter {
         return view;
     }
 
+    //this method is in charge of the filtering settings for the search functionality
     public void filter(String charText){
 
         charText = charText.toLowerCase(Locale.getDefault());
@@ -110,7 +112,14 @@ public class ListViewAdapter extends BaseAdapter {
         {
             for(Model model : arrayList)
             {
+                //this if statement filters by searching for the parking lot's title
                 if (model.getTitle().toLowerCase(Locale.getDefault()).contains(charText))
+                {
+                    modellist.add(model);
+                }
+
+                //this if statement filters by searching through the description of each lot.
+                if (model.getDesc().toLowerCase(Locale.getDefault()).contains(charText))
                 {
                     modellist.add(model);
                 }
