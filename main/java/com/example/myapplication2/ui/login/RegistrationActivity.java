@@ -29,7 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        //firebase authentication
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
@@ -42,6 +42,7 @@ public class RegistrationActivity extends AppCompatActivity {
         });
     }
 
+    //creation of new user
     private void registerNewUser() {
         progressBar.setVisibility(View.VISIBLE);
 

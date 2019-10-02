@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_login);
-
+        //authentication
         mAuth = FirebaseAuth.getInstance();
 
         initializeUI();
@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
+    //login user. Firebase authentication will only let one user in
     private void loginUserAccount() {
         progressBar.setVisibility(View.VISIBLE);
 
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
 
-                            Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, FilterActivity.class);
                             startActivity(intent);
                         }
                         else {

@@ -11,7 +11,8 @@ import com.example.myapplication2.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button registerBtn, loginBtn;
+    private Button registerBtn;
+    private Button loginBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
