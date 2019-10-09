@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6", "Parking Lot #7"};
 
         //Array for each parking lot's description
-        description = new String[]{"parking lot detail #A", "parking lot detail #B", "parking lot detail #C", "parking lot detail #D", "parking lot detail #E", "parking lot detail #F", "parking lot detail #G"};
+        description = new String[]{"parking lot detail - near the ERB", "parking lot detail - near the MAC building", "parking lot detail - near the SIER building", "parking lot detail - near college park", "parking lot detail - near the Physical Education building", "parking lot detail #F", "parking lot detail #G"};
 
         //Array for each parking lot's description
         icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
