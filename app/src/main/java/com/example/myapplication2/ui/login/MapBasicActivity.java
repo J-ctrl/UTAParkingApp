@@ -11,11 +11,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.myapplication2.R;
 import com.here.android.mpa.common.GeoBoundingBox;
@@ -52,12 +50,11 @@ public class MapBasicActivity extends AppCompatActivity {
             Manifest.permission.ACCESS_WIFI_STATE,
             Manifest.permission.ACCESS_NETWORK_STATE
     };
+     public static int position;
     // map embedded in the map fragment
     public static Map map;
-    private  AppCompatActivity m_activity = this;
-    private Button m_naviControlButton;
-    private PositioningManager mPositioningManager;
-    private LocationDataSourceHERE mHereLocation;
+    private   AppCompatActivity m_activity = this;
+    private  Button m_naviControlButton;
 
     // map fragment embedded in this activity
     private AndroidXMapFragment mapFragment;
@@ -65,16 +62,16 @@ public class MapBasicActivity extends AppCompatActivity {
     private GeoBoundingBox m_geoBoundingBox;
     private Route m_route;
     private boolean m_foregroundServiceStarted;
+static GeoCoordinate[] coordinates;
 
-
-
+ static void post(int position2){position=position2;}
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         checkPermissions();
 }
-    private void initialize() {
+    void initialize() {
         setContentView(R.layout.activity_mapbasic);
 // Search for the map fragment to finish setup by calling init().
         mapFragment = (AndroidXMapFragment)
@@ -96,7 +93,7 @@ public class MapBasicActivity extends AppCompatActivity {
 // retrieve a reference of the map from the map fragment
                         map = mapFragment.getMap();
 // Set the map center to the Vancouver region (no animation)
-                        map.setCenter(new GeoCoordinate(49.196261, -123.004773, 0.0),
+                        map.setCenter(new GeoCoordinate(32.7300973, -97.1143442, 0.0),
                                 Map.Animation.NONE);
 // Set the zoom level to the average between min and max
                         map.setZoomLevel(13.2);
@@ -119,7 +116,14 @@ public class MapBasicActivity extends AppCompatActivity {
                 }
             });
         }
-
+        coordinates = new GeoCoordinate[]{new GeoCoordinate(32.7343284, -97.1131157),
+                new GeoCoordinate(32.732370, -97.114987),
+                new GeoCoordinate(32.727639, -97.111675),
+                new GeoCoordinate(32.728551, -97.107697),
+                new GeoCoordinate(32.731257, -97.119128),
+                new GeoCoordinate(32.726451, -97.112895),
+                new GeoCoordinate(32.724613, -97.112537)
+        };
     }
     protected void checkPermissions() {
         final List<String> missingPermissions = new ArrayList<>();
@@ -187,9 +191,9 @@ public class MapBasicActivity extends AppCompatActivity {
 
         /* Define waypoints for the route */
         /* START: 4350 Still Creek Dr */
-        RouteWaypoint startPoint = new RouteWaypoint(new GeoCoordinate(49.259149, -123.008555));
+        RouteWaypoint startPoint = new RouteWaypoint(coordinates[position]);
         /* END: Langley BC */
-        RouteWaypoint destination = new RouteWaypoint(new GeoCoordinate(49.073640, -122.559549));
+        RouteWaypoint destination = new RouteWaypoint(coordinates[position+1]);
 
         /* Add both waypoints to the route plan */
         routePlan.addWaypoint(startPoint);

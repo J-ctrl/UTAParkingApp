@@ -1,6 +1,7 @@
 package com.example.myapplication2.ui.login;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
@@ -9,14 +10,17 @@ import android.widget.ListView;
 import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.myapplication2.R;
 
+import com.example.myapplication2.R;
 
 import java.util.ArrayList;
 public class FilterActivity extends AppCompatActivity{
-    private ListView listView;
-    private ListViewAdapter adapter;
-    private final ArrayList<Model> arrayList = new ArrayList<>();
+    ListView listView;
+    ListViewAdapter adapter;
+    String[] title;
+    String[] description;
+    int[] icon;
+    ArrayList<Model> arrayList = new ArrayList<>();
 
 
     //OnCreate is in charge of setting all the titles, description, and pictures for each parking lot.
@@ -26,14 +30,25 @@ public class FilterActivity extends AppCompatActivity{
         setContentView(R.layout.actvity_search);
 
         //Array for each parking lot's name/title
-        String[] title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6", "Parking Lot #7"};
+        title = new String[]{"Parking Lot #36",
+                             "Parking Lot #F7",
+                             "Parking Lot #47",
+                             "Parking Lot #LCE",
+                             "Parking Lot #30",
+                             "Parking Lot #49",
+                             "Parking Lot #50 N"};
 
         //Array for each parking lot's description
-        String[] description = new String[]{"parking lot detail #A", "parking lot detail #B", "parking lot detail #C", "parking lot detail #D", "parking lot detail #E", "parking lot detail #F", "parking lot detail #G"};
+        description = new String[]{"parking lot detail - near the ERB",
+                                   "parking lot detail - near the MAC building",
+                                   "parking lot detail - near the SIER building",
+                                   "parking lot detail - near college park",
+                                   "parking lot detail - near the Physical Education building",
+                                   "parking lot detail #By the UTA Bridge Near SEIR",
+                                   "parking lot detail #Accross from lot 49"};
 
         //Array for each parking lot's description
-        int[] icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
-
+        icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
 
         listView = findViewById(R.id.listView);
 
@@ -47,11 +62,11 @@ public class FilterActivity extends AppCompatActivity{
 
         //pass results to listViewAdapter class
         adapter = new ListViewAdapter(this, arrayList);
-
         //bind the adapter to the listview
         listView.setAdapter(adapter);
 
     }
+
 
 
     @Override
@@ -91,13 +106,23 @@ public class FilterActivity extends AppCompatActivity{
 
         int id = item.getItemId();
 
-        if(id == R.id.action_settings)
+        if(id == R.id.action_favorites)
         {
             //future functionality here
+            openFavoriteListActivity();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-}
 
+    public void openFavoriteListActivity() {
+        Intent intent = new Intent(this, FavoriteListActivity.class);
+        startActivity(intent);
+
+    }
+    public  void GetDirections(){
+        Intent intent = new Intent(this,MapBasicActivity.class);
+        startActivity(intent);
+    }
+}

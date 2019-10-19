@@ -1,43 +1,51 @@
 package com.example.myapplication2.ui.login;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication2.R;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import com.example.myapplication2.R;
 
 
-class ListViewAdapter extends BaseAdapter {
+public class ListViewAdapter extends BaseAdapter {
 
     //variables
-    private final Context mContext;
-    private final LayoutInflater inflater;
-    private final List<Model> modellist;
-    private final ArrayList<Model> arrayList;
-
+    Context mContext;
+    LayoutInflater inflater;
+    List<Model> modellist;
+    ArrayList<Model> arrayList;
+   AppCompatActivity Activity ;
 
     //constructor
     public ListViewAdapter(Context context, List<Model> modellist) {
         mContext = context;
         this.modellist = modellist;
         inflater = LayoutInflater.from(mContext);
-        this.arrayList = new ArrayList<>();
+        this.arrayList = new ArrayList<Model>();
         this.arrayList.addAll(modellist);
     }
 
 
-    class ViewHolder{
+    public class ViewHolder{
         TextView mTitleTv, mDescTv;
         ImageView mIconIv;
+        MaterialFavoriteButton FvButton;
+        Button DirectionsBtn;
     }
 
 
@@ -58,8 +66,9 @@ class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         ViewHolder holder;
+
 
         if (view==null)
         {
@@ -70,6 +79,8 @@ class ListViewAdapter extends BaseAdapter {
             holder.mTitleTv = view.findViewById(R.id.mainTitle);
             holder.mDescTv = view.findViewById(R.id.mainDescription);
             holder.mIconIv = view.findViewById(R.id.mainIcon);
+            holder.FvButton = view.findViewById(R.id.FavButton);
+            holder.DirectionsBtn = view.findViewById(R.id.directions);
 
             view.setTag(holder);
         }
@@ -81,6 +92,34 @@ class ListViewAdapter extends BaseAdapter {
         //set the results into textviews
         holder.mTitleTv.setText(modellist.get(position).getTitle());
         holder.mDescTv.setText(modellist.get(position).getDesc());
+        holder.DirectionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MapBasicActivity.post(position);
+                mContext.startActivity(new Intent(mContext,MapBasicActivity.class));
+            }
+        });
+        /*This sets the favorite functions for each button in the view - when clicked this sets of the
+        Snackbar notification at the bottom of the screen. This function will do future transactions with the
+        Firebase Database and update the user's favorite list in the database */
+        holder.FvButton.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                        if (favorite)
+                        {
+                            Snackbar.make(buttonView, "Added to Favorites", Snackbar.LENGTH_SHORT).show(); //displays the notification
+                            System.out.println("Added to Favorites.");
+
+                            //update the database by adding the lot to the favorite list !!!!
+                        }
+                        else
+                        {
+                            //unfavorite - delete parking lot from user's favorite's list in the database
+                        }
+                    }
+                }
+        );
 
         //set the results in imageview
         holder.mIconIv.setImageResource(modellist.get(position).getIcon());
@@ -93,6 +132,8 @@ class ListViewAdapter extends BaseAdapter {
 
             }
         });
+
+
 
 
         return view;

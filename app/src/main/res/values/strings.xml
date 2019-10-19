@@ -4,9 +4,9 @@
     <string name="prompt_password" tools:keep="@string/prompt_password">Password</string>
     <string name="action_sign_in" tools:keep="@string/action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short" tools:keep="@string/action_sign_in_short">Sign in</string>
-    <string name="welcome" tools:keep="@string/welcome">"Welcome !"</string>
+    <string name="welcome" tools:keep="@string/welcome">"Welcome!"</string>
     <string name="invalid_username" tools:keep="@string/invalid_username">Not a valid username</string>
-    <string name="invalid_password" tools:keep="@string/invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password" tools:keep="@string/invalid_password">Password must be more than 5 characters</string>
     <string name="login_failed" tools:keep="@string/login_failed">"Login failed"</string>
 
     <string name="password1" tools:keep="@string/password1">password1</string>
@@ -23,8 +23,6 @@
     <string name="default_text" tools:keep="@string/default_text">default text</string>
     <string name="settings">Settings</string>
     <string name="search">Search</string>
-    <string name="title">Title</string>
-    <string name="description">Description</string>
     <string name="engine_init_error">no load</string>
     <string name="hello_world">hi</string>
     <string name="action_settings">b</string>
@@ -34,7 +32,7 @@
     <string name="stop_navi">Stop Navigation</string>
     <string name="action_set_location_method">Set location method</string>
     <string name="title_select_location_method">Select location method</string>
-
+    <string name="Directions">Directions</string>
     <!-- Location method names shown on dialog. -->
     <string-array name="locationMethodNames">
         <item name="locationMethodGps">GPS</item>
@@ -56,6 +54,9 @@
     <string name="action_set_indoor_mode">Set indoor mode</string>
     <string name="title_select_indoor_mode">Select indoor mode</string>
     <string name="waiting_for_position_fix">Waiting for position fix..</string>
+    <string name="favorites">Favorites</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
 
     <!-- Indoor positioning mode names shown on dialog. -->
     <string-array name="indoorPositioningModeNames">

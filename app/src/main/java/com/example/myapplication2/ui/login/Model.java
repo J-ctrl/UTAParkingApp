@@ -1,10 +1,11 @@
 package com.example.myapplication2.ui.login;
 
 //The Model class is used to obtain the information for each parking lot
-class Model {
-    private final String title;
-    private final String desc;
-    private final int icon;
+public class Model {
+    private String title;
+    private String desc;
+    private int icon;
+
 
     // class constructor method
     Model(String title, String desc, int icon) {
