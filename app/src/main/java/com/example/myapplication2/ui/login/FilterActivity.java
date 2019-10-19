@@ -14,12 +14,9 @@ import com.example.myapplication2.R;
 
 import java.util.ArrayList;
 public class FilterActivity extends AppCompatActivity{
-    ListView listView;
-    ListViewAdapter adapter;
-    String[] title;
-    String[] description;
-    int[] icon;
-    ArrayList<Model> arrayList = new ArrayList<>();
+    private ListView listView;
+    private ListViewAdapter adapter;
+    private final ArrayList<Model> arrayList = new ArrayList<>();
 
 
     //OnCreate is in charge of setting all the titles, description, and pictures for each parking lot.
@@ -29,13 +26,13 @@ public class FilterActivity extends AppCompatActivity{
         setContentView(R.layout.actvity_search);
 
         //Array for each parking lot's name/title
-        title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6", "Parking Lot #7"};
+        String[] title = new String[]{"Parking Lot #1", "Parking Lot #2", "Parking Lot #3", "Parking Lot #4", "Parking Lot #5", "Parking Lot #6", "Parking Lot #7"};
 
         //Array for each parking lot's description
-        description = new String[]{"parking lot detail #A", "parking lot detail #B", "parking lot detail #C", "parking lot detail #D", "parking lot detail #E", "parking lot detail #F", "parking lot detail #G"};
+        String[] description = new String[]{"parking lot detail #A", "parking lot detail #B", "parking lot detail #C", "parking lot detail #D", "parking lot detail #E", "parking lot detail #F", "parking lot detail #G"};
 
         //Array for each parking lot's description
-        icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
+        int[] icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
 
 
         listView = findViewById(R.id.listView);

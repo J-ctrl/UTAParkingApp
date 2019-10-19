@@ -16,13 +16,13 @@ import java.util.Locale;
 import com.example.myapplication2.R;
 
 
-public class ListViewAdapter extends BaseAdapter {
+class ListViewAdapter extends BaseAdapter {
 
     //variables
-    Context mContext;
-    LayoutInflater inflater;
-    List<Model> modellist;
-    ArrayList<Model> arrayList;
+    private final Context mContext;
+    private final LayoutInflater inflater;
+    private final List<Model> modellist;
+    private final ArrayList<Model> arrayList;
 
 
     //constructor
@@ -30,12 +30,12 @@ public class ListViewAdapter extends BaseAdapter {
         mContext = context;
         this.modellist = modellist;
         inflater = LayoutInflater.from(mContext);
-        this.arrayList = new ArrayList<Model>();
+        this.arrayList = new ArrayList<>();
         this.arrayList.addAll(modellist);
     }
 
 
-    public class ViewHolder{
+    class ViewHolder{
         TextView mTitleTv, mDescTv;
         ImageView mIconIv;
     }

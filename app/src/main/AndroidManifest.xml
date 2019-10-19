@@ -2,17 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication2" >
-
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <application
-        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="UTAParkPal"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        android:fullBackupContent="@xml/backup_descriptor">
         <activity android:name=".ui.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +29,28 @@
         <activity android:name=".ui.login.FilterActivity"/>
         <activity android:name=".ui.login.Model"/>
         <activity android:name=".ui.login.ListViewAdapter"/>
-
-
+        <activity android:name=".ui.login.MapBasicActivity"/>
+        <meta-data
+            android:name="com.here.android.maps.appid"
+            android:value="rIrlANLxj7ZDOm4zh3lq" />
+        <meta-data
+            android:name="com.here.android.maps.apptoken"
+            android:value="E0G64SzSAdC7kZwVFWrLaQ" />
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="NpKTUI46y9cNuVwG71sk1T5iCWbkb+khCTVDc0WC6I0UHmIIuJLuMrg0TS0dlp7BLgSVGgvFpIM3sY8STtQ2aGQSP3tsNLy9NXCrYFtzQ44tYPR5Wl4kxtozxT7EOGIDNYr4GclsucXNvJMJujByowdhw7mWwAmoqIWUXfSDvO2AB3gZUzDVLvdwbYaB2UN6Q8JxpSrMMZtxSEbxdBFnVv5LvTimxnfOUzlv8TapaPHxZ+VKJf4oe0PovgBX/TGBY9/P4v/r/ko/uu6WjsXCrgm3KcFGreh1Qw9daMGJHfBkA4l4T+ZOLkx+i/7CJ92BKoCTjAyCKWyEWo3U5sLsIEGg+iBrDDUC4SjuHc3TtdTw7W/xY8LriJvFjohtYE+sxnaKO6jFF+RUiuHrQn+iZLbdPKVAQ8o9rfJsrLkvnW6bk+WVg4EC+3TXyvh60wDxRN8Ng4di26YaqkfdfC5kkUtTfR7VFgcTmehRouS+gMdtj3zL2yMGbTaO2OJsE48H+Rnhj2E4Q+lyWYHHjC/oUlbBLfSQLlemI6+T2DNopnJNJMag6HkI0haN0tk/4vNewYKIy2+kcjLXFujgOlsYdpQDwSH92r4HUftNIbSiYwhh7c3INEVA5WuUcss05KgDVuavt9S//lOXXgaXr5i6uD/PYyutz1UlBQcxo2MZaek=" />
+        <meta-data
+            android:name="INTENT_NAME"
+            android:value="android.intent.action.MAIN" />
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:label="UTAParkPal"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN">
+                </action>
+            </intent-filter>
+        </service>
 
     </application>
 
