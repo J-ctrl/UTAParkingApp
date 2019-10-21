@@ -1207,7 +1207,6 @@ id dimensions
 id direct
 id disableHome
 id editText
-id editText2
 id edit_query
 id email
 id end
