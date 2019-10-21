@@ -1,0 +1,282 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.myapplication2"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="29"
+8-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+11-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:5:5-79
+11-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:6:5-78
+12-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:6:22-76
+13    <uses-permission android:name="android.permission.INTERNET" />
+13-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:7:5-66
+13-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:7:22-64
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:8:5-80
+14-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+15-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:9:5-75
+15-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:9:22-73
+16
+17    <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+18    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+18-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7df68f6f6f6e576142e77aae6e6ffca3/play-services-gcm-17.0.0/AndroidManifest.xml:23:5-82
+18-->[com.google.android.gms:play-services-gcm:17.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7df68f6f6f6e576142e77aae6e6ffca3/play-services-gcm-17.0.0/AndroidManifest.xml:23:22-79
+19    <uses-permission android:name="android.permission.WAKE_LOCK" />
+19-->[com.google.android.gms:play-services-measurement-api:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/28c1ceda9eb72d23d1907429a7dd5035/play-services-measurement-api-17.2.0/AndroidManifest.xml:24:5-68
+19-->[com.google.android.gms:play-services-measurement-api:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/28c1ceda9eb72d23d1907429a7dd5035/play-services-measurement-api-17.2.0/AndroidManifest.xml:24:22-65
+20    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+20-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:26:5-110
+20-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:26:22-107
+21
+22    <application
+22-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:10:5-56:19
+23        android:allowBackup="true"
+23-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:12:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/56b6cdfbd80af409835a31a4470c49f0/core-1.1.0/AndroidManifest.xml:24:18-86
+25        android:debuggable="true"
+26        android:fullBackupContent="@xml/backup_descriptor"
+26-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:19:9-59
+27        android:hardwareAccelerated="true"
+27-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:11:9-43
+28        android:icon="@mipmap/ic_launcher"
+28-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:13:9-43
+29        android:label="UTAParkPal"
+29-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:14:9-35
+30        android:roundIcon="@mipmap/ic_launcher_round"
+30-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:15:9-54
+31        android:supportsRtl="true"
+31-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:16:9-35
+32        android:testOnly="true"
+33        android:theme="@style/AppTheme" >
+33-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:17:9-40
+34        <activity android:name="com.example.myapplication2.ui.login.MainActivity" >
+34-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:20:9-26:20
+34-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:20:19-56
+35            <intent-filter>
+35-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:21:13-25:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:22:17-69
+36-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:22:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:24:17-77
+38-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:24:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity android:name="com.example.myapplication2.ui.login.RegistrationActivity" />
+41-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:27:9-66
+41-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:27:19-64
+42        <activity android:name="com.example.myapplication2.ui.login.LoginActivity" />
+42-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:28:9-59
+42-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:28:19-57
+43        <activity android:name="com.example.myapplication2.ui.login.FilterActivity" />
+43-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:29:9-60
+43-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:29:19-58
+44        <activity android:name="com.example.myapplication2.ui.login.Model" />
+44-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:30:9-51
+44-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:30:19-49
+45        <activity android:name="com.example.myapplication2.ui.login.ListViewAdapter" />
+45-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:31:9-61
+45-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:31:19-59
+46        <activity android:name="com.example.myapplication2.ui.login.MapBasicActivity" />
+46-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:32:9-62
+46-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:32:19-60
+47        <activity android:name="com.example.myapplication2.ui.login.FavoriteListActivity" />
+47-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:33:9-66
+47-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:33:19-64
+48
+49        <meta-data
+49-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:34:9-36:52
+50            android:name="com.here.android.maps.appid"
+50-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:35:13-55
+51            android:value="rIrlANLxj7ZDOm4zh3lq" />
+51-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:36:13-49
+52        <meta-data
+52-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:37:9-39:54
+53            android:name="com.here.android.maps.apptoken"
+53-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:38:13-58
+54            android:value="E0G64SzSAdC7kZwVFWrLaQ" />
+54-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:39:13-51
+55        <meta-data
+55-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:40:9-42:716
+56            android:name="com.here.android.maps.license.key"
+56-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:41:13-61
+57            android:value="NpKTUI46y9cNuVwG71sk1T5iCWbkb+khCTVDc0WC6I0UHmIIuJLuMrg0TS0dlp7BLgSVGgvFpIM3sY8STtQ2aGQSP3tsNLy9NXCrYFtzQ44tYPR5Wl4kxtozxT7EOGIDNYr4GclsucXNvJMJujByowdhw7mWwAmoqIWUXfSDvO2AB3gZUzDVLvdwbYaB2UN6Q8JxpSrMMZtxSEbxdBFnVv5LvTimxnfOUzlv8TapaPHxZ+VKJf4oe0PovgBX/TGBY9/P4v/r/ko/uu6WjsXCrgm3KcFGreh1Qw9daMGJHfBkA4l4T+ZOLkx+i/7CJ92BKoCTjAyCKWyEWo3U5sLsIEGg+iBrDDUC4SjuHc3TtdTw7W/xY8LriJvFjohtYE+sxnaKO6jFF+RUiuHrQn+iZLbdPKVAQ8o9rfJsrLkvnW6bk+WVg4EC+3TXyvh60wDxRN8Ng4di26YaqkfdfC5kkUtTfR7VFgcTmehRouS+gMdtj3zL2yMGbTaO2OJsE48H+Rnhj2E4Q+lyWYHHjC/oUlbBLfSQLlemI6+T2DNopnJNJMag6HkI0haN0tk/4vNewYKIy2+kcjLXFujgOlsYdpQDwSH92r4HUftNIbSiYwhh7c3INEVA5WuUcss05KgDVuavt9S//lOXXgaXr5i6uD/PYyutz1UlBQcxo2MZaek=" />
+57-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:42:13-713
+58        <meta-data
+58-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:43:9-45:58
+59            android:name="INTENT_NAME"
+59-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:44:13-39
+60            android:value="android.intent.action.MAIN" />
+60-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:45:13-55
+61
+62        <service
+62-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:46:9-54:19
+63            android:name="com.here.android.mpa.service.MapService"
+63-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:47:13-67
+64            android:exported="false"
+64-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:49:13-37
+65            android:label="UTAParkPal" >
+65-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:48:13-39
+66            <intent-filter>
+66-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:50:13-53:29
+67                <action android:name="android.intent.action.MAIN" >
+67-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:22:17-69
+67-->/Users/kadjoanoh/Documents/3311/UTAParkingApp/app/src/main/AndroidManifest.xml:22:25-66
+68                </action>
+69            </intent-filter>
+70        </service>
+71
+72        <activity
+72-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:24:9-31:50
+73            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+73-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:25:13-85
+74            android:excludeFromRecents="true"
+74-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:26:13-46
+75            android:exported="true"
+75-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:27:13-36
+76            android:launchMode="singleTask"
+76-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:28:13-44
+77            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+77-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:29:13-102
+78            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+78-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:30:13-72
+79
+80        <service
+80-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:33:9-39:19
+81            android:name="com.google.firebase.components.ComponentDiscoveryService"
+81-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:34:13-84
+82            android:exported="false" >
+82-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:35:13-37
+83            <meta-data
+83-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:36:13-38:85
+84                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+84-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:37:17-109
+85                android:value="com.google.firebase.components.ComponentRegistrar" />
+85-->[com.google.firebase:firebase-auth:19.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/4bf5ad23fb8b48603baac97e97e245fe/firebase-auth-19.1.0/AndroidManifest.xml:38:17-82
+86            <meta-data
+86-->[com.google.android.gms:play-services-measurement-api:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/28c1ceda9eb72d23d1907429a7dd5035/play-services-measurement-api-17.2.0/AndroidManifest.xml:30:13-32:85
+87                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+87-->[com.google.android.gms:play-services-measurement-api:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/28c1ceda9eb72d23d1907429a7dd5035/play-services-measurement-api-17.2.0/AndroidManifest.xml:31:17-139
+88                android:value="com.google.firebase.components.ComponentRegistrar" />
+88-->[com.google.android.gms:play-services-measurement-api:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/28c1ceda9eb72d23d1907429a7dd5035/play-services-measurement-api-17.2.0/AndroidManifest.xml:32:17-82
+89            <meta-data
+89-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:32:13-34:85
+90                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+90-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:33:17-96
+91                android:value="com.google.firebase.components.ComponentRegistrar" />
+91-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:34:17-82
+92        </service>
+93
+94        <receiver
+94-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:37:9-44:20
+95            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+95-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:38:13-78
+96            android:exported="true"
+96-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:39:13-36
+97            android:permission="com.google.android.c2dm.permission.SEND" >
+97-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:40:13-73
+98            <intent-filter>
+98-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:41:13-43:29
+99                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+99-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:42:17-81
+99-->[com.google.firebase:firebase-iid:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/6cfe46f408152b0cf1be5d6c31bb25ab/firebase-iid-19.0.0/AndroidManifest.xml:42:25-78
+100            </intent-filter>
+101        </receiver>
+102
+103        <activity
+103-->[com.google.android.gms:play-services-base:17.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/c6ed24259e187418524151309c91ad64/play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+104            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+104-->[com.google.android.gms:play-services-base:17.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/c6ed24259e187418524151309c91ad64/play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+105            android:exported="false"
+105-->[com.google.android.gms:play-services-base:17.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/c6ed24259e187418524151309c91ad64/play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+106            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+106-->[com.google.android.gms:play-services-base:17.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/c6ed24259e187418524151309c91ad64/play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+107
+108        <provider
+108-->[com.google.firebase:firebase-common:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/e306355be855e8d08fa629ba35e00000/firebase-common-19.0.0/AndroidManifest.xml:12:9-16:39
+109            android:name="com.google.firebase.provider.FirebaseInitProvider"
+109-->[com.google.firebase:firebase-common:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/e306355be855e8d08fa629ba35e00000/firebase-common-19.0.0/AndroidManifest.xml:13:13-77
+110            android:authorities="com.example.myapplication2.firebaseinitprovider"
+110-->[com.google.firebase:firebase-common:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/e306355be855e8d08fa629ba35e00000/firebase-common-19.0.0/AndroidManifest.xml:14:13-72
+111            android:exported="false"
+111-->[com.google.firebase:firebase-common:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/e306355be855e8d08fa629ba35e00000/firebase-common-19.0.0/AndroidManifest.xml:15:13-37
+112            android:initOrder="100" />
+112-->[com.google.firebase:firebase-common:19.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/e306355be855e8d08fa629ba35e00000/firebase-common-19.0.0/AndroidManifest.xml:16:13-36
+113
+114        <receiver
+114-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:29:9-33:20
+115            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+115-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:30:13-85
+116            android:enabled="true"
+116-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:31:13-35
+117            android:exported="false" >
+117-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:32:13-37
+118        </receiver>
+119        <receiver
+119-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:34:9-42:20
+120            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+120-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:35:13-100
+121            android:enabled="true"
+121-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:36:13-35
+122            android:exported="true"
+122-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:37:13-36
+123            android:permission="android.permission.INSTALL_PACKAGES" >
+123-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:38:13-69
+124            <intent-filter>
+124-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:39:13-41:29
+125                <action android:name="com.android.vending.INSTALL_REFERRER" />
+125-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:40:17-79
+125-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:40:25-76
+126            </intent-filter>
+127        </receiver>
+128
+129        <service
+129-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:44:9-47:40
+130            android:name="com.google.android.gms.measurement.AppMeasurementService"
+130-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:45:13-84
+131            android:enabled="true"
+131-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:46:13-35
+132            android:exported="false" />
+132-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:47:13-37
+133        <service
+133-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:48:9-52:72
+134            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+134-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:49:13-87
+135            android:enabled="true"
+135-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:50:13-35
+136            android:exported="false"
+136-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:51:13-37
+137            android:permission="android.permission.BIND_JOB_SERVICE" />
+137-->[com.google.android.gms:play-services-measurement:17.2.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/7c4237e0029812955685234cfce19139/play-services-measurement-17.2.0/AndroidManifest.xml:52:13-69
+138
+139        <meta-data
+139-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/3523fefb3fa554dd3f3cb5be5b11fca7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+140            android:name="com.google.android.gms.version"
+140-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/3523fefb3fa554dd3f3cb5be5b11fca7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+141            android:value="@integer/google_play_services_version" />
+141-->[com.google.android.gms:play-services-basement:17.0.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/3523fefb3fa554dd3f3cb5be5b11fca7/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+142
+143        <provider
+143-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/35111811781ca491abca62b7d00445bc/lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+144            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+144-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/35111811781ca491abca62b7d00445bc/lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+145            android:authorities="com.example.myapplication2.lifecycle-process"
+145-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/35111811781ca491abca62b7d00445bc/lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+146            android:exported="false"
+146-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/35111811781ca491abca62b7d00445bc/lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+147            android:multiprocess="true" />
+147-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/kadjoanoh/.gradle/caches/transforms-2/files-2.1/35111811781ca491abca62b7d00445bc/lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+148    </application>
+149
+150</manifest>

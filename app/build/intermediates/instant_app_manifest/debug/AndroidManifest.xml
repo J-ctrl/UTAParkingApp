@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapplication2"
+    android:targetSandboxVersion="2"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="29"
+        android:targetSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Required by older versions of Google Play services to create GCM registration tokens -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:debuggable="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="UTAParkPal"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/AppTheme" >
+        <activity android:name="com.example.myapplication2.ui.login.MainActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.myapplication2.ui.login.RegistrationActivity" />
+        <activity android:name="com.example.myapplication2.ui.login.LoginActivity" />
+        <activity android:name="com.example.myapplication2.ui.login.FilterActivity" />
+        <activity android:name="com.example.myapplication2.ui.login.Model" />
+        <activity android:name="com.example.myapplication2.ui.login.ListViewAdapter" />
+        <activity android:name="com.example.myapplication2.ui.login.MapBasicActivity" />
+        <activity android:name="com.example.myapplication2.ui.login.FavoriteListActivity" />
+
+        <meta-data
+            android:name="com.here.android.maps.appid"
+            android:value="rIrlANLxj7ZDOm4zh3lq" />
+        <meta-data
+            android:name="com.here.android.maps.apptoken"
+            android:value="E0G64SzSAdC7kZwVFWrLaQ" />
+        <meta-data
+            android:name="com.here.android.maps.license.key"
+            android:value="NpKTUI46y9cNuVwG71sk1T5iCWbkb+khCTVDc0WC6I0UHmIIuJLuMrg0TS0dlp7BLgSVGgvFpIM3sY8STtQ2aGQSP3tsNLy9NXCrYFtzQ44tYPR5Wl4kxtozxT7EOGIDNYr4GclsucXNvJMJujByowdhw7mWwAmoqIWUXfSDvO2AB3gZUzDVLvdwbYaB2UN6Q8JxpSrMMZtxSEbxdBFnVv5LvTimxnfOUzlv8TapaPHxZ+VKJf4oe0PovgBX/TGBY9/P4v/r/ko/uu6WjsXCrgm3KcFGreh1Qw9daMGJHfBkA4l4T+ZOLkx+i/7CJ92BKoCTjAyCKWyEWo3U5sLsIEGg+iBrDDUC4SjuHc3TtdTw7W/xY8LriJvFjohtYE+sxnaKO6jFF+RUiuHrQn+iZLbdPKVAQ8o9rfJsrLkvnW6bk+WVg4EC+3TXyvh60wDxRN8Ng4di26YaqkfdfC5kkUtTfR7VFgcTmehRouS+gMdtj3zL2yMGbTaO2OJsE48H+Rnhj2E4Q+lyWYHHjC/oUlbBLfSQLlemI6+T2DNopnJNJMag6HkI0haN0tk/4vNewYKIy2+kcjLXFujgOlsYdpQDwSH92r4HUftNIbSiYwhh7c3INEVA5WuUcss05KgDVuavt9S//lOXXgaXr5i6uD/PYyutz1UlBQcxo2MZaek=" />
+        <meta-data
+            android:name="INTENT_NAME"
+            android:value="android.intent.action.MAIN" />
+
+        <service
+            android:name="com.here.android.mpa.service.MapService"
+            android:exported="false"
+            android:label="UTAParkPal" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" >
+                </action>
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false" >
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar" />
+        </service>
+
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:authorities="com.example.myapplication2.firebaseinitprovider"
+            android:exported="false"
+            android:initOrder="100" />
+
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false" >
+        </receiver>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.INSTALL_PACKAGES" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <provider
+            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+            android:authorities="com.example.myapplication2.lifecycle-process"
+            android:exported="false"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
