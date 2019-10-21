@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1098651644797",
+    "firebase_url": "https://utaparkpal.firebaseio.com",
+    "project_id": "utaparkpal",
+    "storage_bucket": "utaparkpal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098651644797:android:b2fa30eb61d249c627d214",
+        "android_client_info": {
+          "package_name": "com.example.myapplication2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098651644797-f3i64tsp764ahlskkmrnpamrrm1dob8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myapplication2",
+            "certificate_hash": "d6f6e73dc6ee6be86e7f7e2e5d6de397a5554f67"
+          }
+        },
+        {
+          "client_id": "1098651644797-kh0u41i4jde8djsdnrdjkihjaooahvha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAexbXmieu0M-TMbGqnXltwBWW5kH4kHug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098651644797-kh0u41i4jde8djsdnrdjkihjaooahvha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
