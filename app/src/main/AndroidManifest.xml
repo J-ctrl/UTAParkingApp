@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.myapplication2" >
+    package="com.example.myapplication2">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
     <application
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="UTAParkPal"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning"
-        android:fullBackupContent="@xml/backup_descriptor">
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Reminder"></activity>
         <activity android:name=".ui.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,13 +27,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.login.RegistrationActivity"/>
-        <activity android:name=".ui.login.LoginActivity"/>
-        <activity android:name=".ui.login.FilterActivity"/>
-        <activity android:name=".ui.login.Model"/>
-        <activity android:name=".ui.login.ListViewAdapter"/>
-        <activity android:name=".ui.login.MapBasicActivity"/>
-        <activity android:name=".ui.login.FavoriteListActivity"/>
+        <activity android:name=".ui.login.RegistrationActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.login.FilterActivity" />
+        <activity android:name=".ui.login.Model" />
+        <activity android:name=".ui.login.ListViewAdapter" />
+        <activity android:name=".ui.login.MapBasicActivity" />
+        <activity android:name=".ui.login.FavoriteListActivity" />
+
         <meta-data
             android:name="com.here.android.maps.appid"
             android:value="rIrlANLxj7ZDOm4zh3lq" />
@@ -43,16 +47,15 @@
         <meta-data
             android:name="INTENT_NAME"
             android:value="android.intent.action.MAIN" />
+
         <service
             android:name="com.here.android.mpa.service.MapService"
-            android:label="UTAParkPal"
-            android:exported="false">
+            android:exported="false"
+            android:label="UTAParkPal">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN">
-                </action>
+                <action android:name="android.intent.action.MAIN"></action>
             </intent-filter>
         </service>
-
     </application>
 
 </manifest>
