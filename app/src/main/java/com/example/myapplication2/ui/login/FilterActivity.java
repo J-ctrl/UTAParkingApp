@@ -11,6 +11,7 @@ import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.myapplication2.EventsList;
 import com.example.myapplication2.R;
 import com.example.myapplication2.Reminder;
 
@@ -116,6 +117,12 @@ public class FilterActivity extends AppCompatActivity{
 
         if(id == R.id.action_reminder){
             Intent myIntent = new Intent(this, Reminder.class);
+            startActivity(myIntent);
+        }
+
+
+        if(id == R.id.action_eventsList){
+            Intent myIntent = new Intent(this, EventsList.class);
             startActivity(myIntent);
         }
 

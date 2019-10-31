@@ -14,5 +14,9 @@
         android:title="Reminder"
         />
 
+    <item android:id="@+id/action_eventsList"
+        android:title="Events List"
+        />
+
 
 </menu>

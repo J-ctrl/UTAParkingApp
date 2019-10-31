@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Reminder"></activity>
+        <activity android:name=".EventsList"></activity>
+        <activity android:name=".Reminder" />
         <activity android:name=".ui.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +54,7 @@
             android:exported="false"
             android:label="UTAParkPal">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"></action>
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </service>
     </application>
