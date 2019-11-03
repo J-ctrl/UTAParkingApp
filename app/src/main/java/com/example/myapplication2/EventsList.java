@@ -25,9 +25,24 @@ public class EventsList extends AppCompatActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
-        mWebView.loadUrl("https://www.facebook.com/");
+        mWebView.loadUrl("https://events.uta.edu/");
 
         //Make the url stay inside the app
         mWebView.setWebViewClient(new WebViewClient());
+        // Stop local links and redirects from opening in browser instead of WebView
+        mWebView.setWebViewClient(new MyAppWebViewClient());
+
     }
+
+
+    @Override
+    public void onBackPressed() {
+        if(mWebView.canGoBack()) {
+            mWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
+
 }
