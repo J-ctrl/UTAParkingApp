@@ -13,6 +13,10 @@ public class MyAppWebViewClient extends WebViewClient {
             return false;
         }
 
+        if(Uri.parse(url).getHost().length() == 0) {
+            return false;
+        }
+
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         view.getContext().startActivity(intent);
         return true;
