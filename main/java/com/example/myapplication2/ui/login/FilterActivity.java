@@ -10,9 +10,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.myapplication2.R;
-
-
 import java.util.ArrayList;
+
 public class FilterActivity extends AppCompatActivity{
     ListView listView;
     ListViewAdapter adapter;
@@ -98,7 +97,7 @@ public class FilterActivity extends AppCompatActivity{
         if(id == R.id.action_favorites)
         {
             //future functionality here
-            openFavoriteListActivity();
+            openFavoriteListActivity(); // this opens the favorites list activity
             return true;
         }
 

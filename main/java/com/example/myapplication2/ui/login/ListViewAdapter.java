@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +15,11 @@ import com.example.myapplication2.R;
 import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 
 public class ListViewAdapter extends BaseAdapter {
@@ -26,6 +29,12 @@ public class ListViewAdapter extends BaseAdapter {
     LayoutInflater inflater;
     List<Model> modellist;
     ArrayList<Model> arrayList;
+    FirebaseDatabase database = FirebaseDatabase.getInstance(); //gets database instance
+    FirebaseAuth mAuth = FirebaseAuth.getInstance(); //gets authorization instance
+    FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
+    DatabaseReference myRef = database.getReference("User Favorites");
 
 
     //constructor
@@ -62,8 +71,9 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup parent) {
+    public View getView(final int position, View view, ViewGroup parent) {
         ViewHolder holder;
+
 
 
         if (view==null)
@@ -97,10 +107,15 @@ public class ListViewAdapter extends BaseAdapter {
                     public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                         if (favorite)
                         {
-                            Snackbar.make(buttonView, "Added to Favorites", Snackbar.LENGTH_SHORT).show(); //displays the notification
-                            System.out.println("Added to Favorites.");
 
-                            //update the database by adding the lot to the favorite list !!!!
+                            Snackbar.make(buttonView, "Added to Favorites", Snackbar.LENGTH_SHORT).show(); //displays the notification
+                            //update the database by adding the lot to the favorite list !!!
+
+                            //get the user's UUID this will be used to store the lot in the database under this user
+                            String userUid = currentUser.getUid();
+
+                            myRef.child(userUid).push().setValue(modellist.get(position).getTitle());  //writes the user's name in the database
+                                //writes the user's name in the database
                         }
                         else
                         {
