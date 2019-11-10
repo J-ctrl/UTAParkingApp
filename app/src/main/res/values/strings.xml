@@ -57,6 +57,12 @@
     <string name="favorites">Favorites</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    <string name="calculate_route">Calculate Route</string>
+    <string name="jb">...</string>
+    <string name="jb2">...</string>
+    <string name="jb3">...</string>
+    <string name="time_till_arrival">Time till Arrival:</string>
+    <string name="ll">not granted.</string>
 
     <!-- Indoor positioning mode names shown on dialog. -->
     <string-array name="indoorPositioningModeNames">

@@ -5,9 +5,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,21 +18,29 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.myapplication2.R;
+import com.here.android.mpa.common.PositioningManager;
+import com.here.android.mpa.mapping.MapMarker;
+import com.here.android.mpa.mapping.OnMapRenderListener;
 import com.here.android.mpa.common.GeoBoundingBox;
 import com.here.android.mpa.common.GeoCoordinate;
 import com.here.android.mpa.common.GeoPosition;
-import com.here.android.mpa.common.LocationDataSourceHERE;
+import com.here.android.mpa.common.MapEngine;
 import com.here.android.mpa.common.OnEngineInitListener;
-import com.here.android.mpa.common.PositioningManager;
+import com.here.android.mpa.common.ViewObject;
 import com.here.android.mpa.guidance.NavigationManager;
+import com.here.android.mpa.guidance.TrafficUpdater;
 import com.here.android.mpa.mapping.AndroidXMapFragment;
 import com.here.android.mpa.mapping.Map;
+import com.here.android.mpa.mapping.MapGesture;
 import com.here.android.mpa.mapping.MapRoute;
+import com.here.android.mpa.mapping.MapState;
 import com.here.android.mpa.routing.CoreRouter;
+import com.here.android.mpa.routing.DynamicPenalty;
 import com.here.android.mpa.routing.Route;
 import com.here.android.mpa.routing.RouteOptions;
 import com.here.android.mpa.routing.RoutePlan;
 import com.here.android.mpa.routing.RouteResult;
+import com.here.android.mpa.routing.RouteTta;
 import com.here.android.mpa.routing.RouteWaypoint;
 import com.here.android.mpa.routing.Router;
 import com.here.android.mpa.routing.RoutingError;
@@ -55,13 +65,17 @@ public class MapBasicActivity extends AppCompatActivity {
     public static Map map;
     private   AppCompatActivity m_activity = this;
     private  Button m_naviControlButton;
-
+    private PointF m_mapTransformCenter;
+    private boolean m_returningToRoadViewMode = false;
+    private TrafficUpdater.RequestInfo m_requestInfo;
     // map fragment embedded in this activity
     private AndroidXMapFragment mapFragment;
     private NavigationManager m_navigationManager;
     private GeoBoundingBox m_geoBoundingBox;
     private Route m_route;
+    private MapMarker m_positionIndicatorFixed = null;
     private boolean m_foregroundServiceStarted;
+    private Button m_calculateRouteBtn;
 static GeoCoordinate[] coordinates;
 
  static void post(int position2){position=position2;}
@@ -73,11 +87,11 @@ static GeoCoordinate[] coordinates;
 }
     void initialize() {
         setContentView(R.layout.activity_mapbasic);
-// Search for the map fragment to finish setup by calling init().
+        // Search for the map fragment to finish setup by calling init().
         mapFragment = (AndroidXMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.mapfragment);
-// Set up disk cache path for the map service for this application
-// It is recommended to use a path under your application folder for storing the disk cache
+                // Set up disk cache path for the map service for this application
+                // It is recommended to use a path under your application folder for storing the disk cache
 
         boolean success = com.here.android.mpa.common.MapSettings.setIsolatedDiskCacheRootPath(
                 getApplicationContext().getExternalFilesDir(null) + File.separator + ".here-maps",
@@ -90,14 +104,17 @@ static GeoCoordinate[] coordinates;
                 @Override
                 public void onEngineInitializationCompleted(OnEngineInitListener.Error error) {
                     if (error == OnEngineInitListener.Error.NONE) {
-// retrieve a reference of the map from the map fragment
+                        mapFragment.getMapGesture().addOnGestureListener(gestureListener, 100, true);
+
+                        // retrieve a reference of the map from the map fragment
                         map = mapFragment.getMap();
-// Set the map center to the Vancouver region (no animation)
+                        // Set the map center to the Vancouver region (no animation)
                         map.setCenter(new GeoCoordinate(32.7300973, -97.1143442, 0.0),
                                 Map.Animation.NONE);
-// Set the zoom level to the average between min and max
+                        // Set the zoom level to the average between min and max
                         map.setZoomLevel(13.2);
                         m_navigationManager = NavigationManager.getInstance();
+
                     } else {
                         new AlertDialog.Builder(m_activity).setMessage(
                                 "Error : " + error.name() + "\n\n" + error.getDetails())
@@ -115,6 +132,40 @@ static GeoCoordinate[] coordinates;
 
                 }
             });
+            mapFragment.addOnMapRenderListener(new OnMapRenderListener() {
+                @Override
+                public void onPreDraw() {
+                    if (m_positionIndicatorFixed != null) {
+                        if (NavigationManager.getInstance()
+                                .getMapUpdateMode().equals(NavigationManager.MapUpdateMode.ROADVIEW)) {
+                            if (!m_returningToRoadViewMode) {
+                                // when road view is active, we set the position indicator to align
+                                // with the current map transform center to synchronize map and map
+                                // marker movements.
+                                m_positionIndicatorFixed.setCoordinate(map.pixelToGeo(m_mapTransformCenter));
+                            }
+                        }
+                    }
+                }
+
+                @Override
+                public void onPostDraw(boolean var1, long var2) {
+                }
+
+                @Override
+                public void onSizeChanged(int var1, int var2) {
+                }
+
+                @Override
+                public void onGraphicsDetached() {
+                }
+
+                @Override
+                public void onRenderBufferCreated() {
+                }
+            });
+
+
         }
         coordinates = new GeoCoordinate[]{new GeoCoordinate(32.7343284, -97.1131157),
                 new GeoCoordinate(32.732370, -97.114987),
@@ -125,9 +176,34 @@ static GeoCoordinate[] coordinates;
                 new GeoCoordinate(32.724613, -97.112537)
         };
     }
+    private void calculateTtaUsingDownloadedTraffic(){
+        /* Turn on traffic updates */
+        TrafficUpdater.getInstance().enableUpdate(true);
+
+        m_requestInfo = TrafficUpdater.getInstance().request(
+                m_route, new TrafficUpdater.Listener() {
+                    @Override
+                    public void onStatusChanged(TrafficUpdater.RequestState requestState) {
+                        final RouteTta ttaDownloaded = m_route.getTtaUsingDownloadedTraffic(
+                                Route.WHOLE_ROUTE);
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                final TextView tvDownload = findViewById(R.id.tvTtaInclude);
+
+                                if (tvDownload != null) {
+                                    tvDownload.setText("Tta downloaded: " +
+                                            String.valueOf(ttaDownloaded.getDuration()));
+                                }
+                            }
+                        });
+                    }
+                });
+    }
     protected void checkPermissions() {
         final List<String> missingPermissions = new ArrayList<>();
-// check all required dynamic permissions
+        // check all required dynamic permissions
         for (final String permission : REQUIRED_SDK_PERMISSIONS) {
             final int result = ContextCompat.checkSelfPermission(this, permission);
             if (result != PackageManager.PERMISSION_GRANTED) {
@@ -135,7 +211,7 @@ static GeoCoordinate[] coordinates;
             }
         }
         if (!missingPermissions.isEmpty()) {
-// request all missing permissions
+            // request all missing permissions
             final String[] permissions = missingPermissions
                     .toArray(new String[0]);
             ActivityCompat.requestPermissions(this, permissions, REQUEST_CODE_ASK_PERMISSIONS);
@@ -152,23 +228,39 @@ static GeoCoordinate[] coordinates;
         if (requestCode == REQUEST_CODE_ASK_PERMISSIONS) {
             for (int index = permissions.length - 1; index >= 0; --index) {
                 if (grantResults[index] != PackageManager.PERMISSION_GRANTED) {
-// exit the app if one permission is not granted
+                    // exit the app if one permission is not granted
                     Toast.makeText(this, "Required permission '" + permissions[index]
                             + "' not granted, exiting", Toast.LENGTH_LONG).show();
                     finish();
                     return;
                 }
             }
-// all permissions were granted
+            // all permissions were granted
             initialize();
             initNaviControlButton();
 
         }
     }
+    private void calculateTta() {
+        /*
+         * Receive arrival time for the whole m_route, if you want to get time only for part of
+         * m_route pass parameter in bounds 0 <= m_route.getSublegCount()
+         */
+        final RouteTta ttaExcluding = m_route.getTtaExcludingTraffic(Route.WHOLE_ROUTE);
+        final RouteTta ttaIncluding = m_route.getTtaIncludingTraffic(Route.WHOLE_ROUTE);
+
+        final TextView tvInclude = findViewById(R.id.tvTtaInclude);
+        tvInclude.setText(String.valueOf(ttaIncluding.getDuration()));
+
+    }
+
+
     private void createRoute() {
         /* Initialize a CoreRouter */
         CoreRouter coreRouter = new CoreRouter();
-
+        DynamicPenalty dynamicPenalty = new DynamicPenalty();
+        dynamicPenalty.setTrafficPenaltyMode(Route.TrafficPenaltyMode.OPTIMAL);
+        coreRouter.setDynamicPenalty(dynamicPenalty);
         /* Initialize a RoutePlan */
         RoutePlan routePlan = new RoutePlan();
 
@@ -183,7 +275,7 @@ static GeoCoordinate[] coordinates;
         /* Disable highway in this route. */
         routeOptions.setHighwaysAllowed(false);
         /* Calculate the shortest route available. */
-        routeOptions.setRouteType(RouteOptions.Type.SHORTEST);
+        routeOptions.setRouteType(RouteOptions.Type.FASTEST);
         /* Calculate 1 route. */
         routeOptions.setRouteCount(1);
         /* Finally set the route option */
@@ -194,7 +286,9 @@ static GeoCoordinate[] coordinates;
         RouteWaypoint startPoint = new RouteWaypoint(coordinates[position]);
         /* END: Langley BC */
         RouteWaypoint destination = new RouteWaypoint(coordinates[position+1]);
+        map.addTransformListener(onTransformListener);
 
+        PositioningManager.getInstance().start(PositioningManager.LocationMethod.GPS_NETWORK);
         /* Add both waypoints to the route plan */
         routePlan.addWaypoint(startPoint);
         routePlan.addWaypoint(destination);
@@ -217,6 +311,7 @@ static GeoCoordinate[] coordinates;
 
                                 m_route = routeResults.get(0).getRoute();
                                 /* Create a MapRoute so that it can be placed on the map */
+
                                 MapRoute mapRoute = new MapRoute(routeResults.get(0).getRoute());
 
                                 /* Show the maneuver number on top of the route */
@@ -232,6 +327,7 @@ static GeoCoordinate[] coordinates;
                                 m_geoBoundingBox = routeResults.get(0).getRoute().getBoundingBox();
                                 map.zoomTo(m_geoBoundingBox, Map.Animation.NONE,
                                         Map.MOVE_PRESERVE_ORIENTATION);
+
 
                                 startNavigation();
                             } else {
@@ -250,7 +346,7 @@ static GeoCoordinate[] coordinates;
     }
 
     private void initNaviControlButton() {
-        m_naviControlButton = findViewById(R.id.naviCtrlButton);
+        m_naviControlButton = findViewById(R.id.btnCalculateRoute);
         m_naviControlButton.setText(R.string.start_navi);
         m_naviControlButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -274,6 +370,7 @@ static GeoCoordinate[] coordinates;
                     /*
                      * Restore the map orientation to show entire route on screen
                      */
+
                     map.zoomTo(m_geoBoundingBox, Map.Animation.NONE, 0f);
                     m_naviControlButton.setText(R.string.start_navi);
                     m_route = null;
@@ -311,6 +408,7 @@ static GeoCoordinate[] coordinates;
         m_naviControlButton.setText(R.string.stop_navi);
         /* Configure Navigation manager to launch navigation on current map */
         m_navigationManager.setMap(map);
+        calculateTtaUsingDownloadedTraffic();
 
         /*
          * Start the turn-by-turn navigation.Please note if the transport mode of the passed-in
@@ -373,8 +471,7 @@ static GeoCoordinate[] coordinates;
     private NavigationManager.PositionListener m_positionListener = new NavigationManager.PositionListener() {
         @Override
         public void onPositionUpdated(GeoPosition geoPosition) {
-            /* Current position information can be retrieved in this callback */
-        }
+               }
     };
 
     private NavigationManager.NavigationManagerEventListener m_navigationManagerEventListener = new NavigationManager.NavigationManagerEventListener() {
@@ -412,12 +509,124 @@ static GeoCoordinate[] coordinates;
         }
     };
 
+    private MapGesture.OnGestureListener gestureListener = new MapGesture.OnGestureListener() {
+        @Override
+        public void onPanStart() {
+
+        }
+
+        @Override
+        public void onPanEnd() {
+        }
+
+        @Override
+        public void onMultiFingerManipulationStart() {
+        }
+
+        @Override
+        public void onMultiFingerManipulationEnd() {
+        }
+
+        @Override
+        public boolean onMapObjectsSelected(List<ViewObject> objects) {
+            return false;
+        }
+
+        @Override
+        public boolean onTapEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public boolean onDoubleTapEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public void onPinchLocked() {
+        }
+
+        @Override
+        public boolean onPinchZoomEvent(float scaleFactor, PointF p) {
+
+            return false;
+        }
+
+        @Override
+        public void onRotateLocked() {
+        }
+
+        @Override
+        public boolean onRotateEvent(float rotateAngle) {
+            return false;
+        }
+
+        @Override
+        public boolean onTiltEvent(float angle) {
+
+            return false;
+        }
+
+        @Override
+        public boolean onLongPressEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public void onLongPressRelease() {
+        }
+
+        @Override
+        public boolean onTwoFingerTapEvent(PointF p) {
+            return false;
+        }
+    };
+
+    final private NavigationManager.RoadView.Listener roadViewListener = new NavigationManager.RoadView.Listener() {
+        @Override
+        public void onPositionChanged(GeoCoordinate geoCoordinate) {
+            // an active RoadView provides coordinates that is the map transform center of it's
+            // movements.
+            m_mapTransformCenter = map.projectToPixel
+                    (geoCoordinate).getResult();
+        }
+    };
+
+    final private Map.OnTransformListener onTransformListener = new Map.OnTransformListener() {
+        @Override
+        public void onMapTransformStart() {
+        }
+
+        @Override
+        public void onMapTransformEnd(MapState mapsState) {
+            // do not start RoadView and its listener until moving map to current position has
+            // completed
+            if (m_returningToRoadViewMode) {
+                NavigationManager.getInstance().setMapUpdateMode(NavigationManager.MapUpdateMode
+                        .ROADVIEW);
+                NavigationManager.getInstance().getRoadView().addListener(new
+                        WeakReference<NavigationManager.RoadView.Listener>(roadViewListener));
+                m_returningToRoadViewMode = false;
+            }
+        }
+
+    };
+
+
     public void onDestroy() {
         /* Stop the navigation when app is destroyed */
         super.onDestroy();
         if (m_navigationManager != null) {
             stopForegroundService();
             m_navigationManager.stop();
+        }
+        if (MapEngine.isInitialized()) {
+            TrafficUpdater.getInstance().enableUpdate(false);
+        }
+
+        if (m_requestInfo != null) {
+            /*  Cancel request by request Id */
+            TrafficUpdater.getInstance().cancelRequest(m_requestInfo.getRequestId());
         }
     }
 
