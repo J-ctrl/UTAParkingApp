@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="10dp">
+
+
+    <ImageView
+        android:id="@+id/mainIcon"
+        android:src="@drawable/questionmark"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:contentDescription="TODO" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp">
+        <TextView
+            android:id="@+id/mainTitle"
+            android:text="@string/title"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/mainDescription"
+            android:text="@string/description"
+            android:textSize="20sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.github.ivbaranov.mfb.MaterialFavoriteButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/FavButton"
+            app:mfb_type="heart"
+            android:layout_gravity="right"
+            />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Directions"
+            android:id="@+id/directions"
+            android:layout_gravity="left" />
+    </LinearLayout>
+</LinearLayout>
