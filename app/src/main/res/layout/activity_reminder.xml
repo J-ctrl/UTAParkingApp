@@ -27,6 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:layout_marginBottom="32dp"
+        android:headerBackground="@color/utaBlue"
+        android:numbersSelectorColor="@color/utaBlue"
         app:layout_constraintBottom_toTopOf="@+id/setButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,27 +36,27 @@
 
     <Button
         android:id="@+id/setButton"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="96dp"
+        android:background="@drawable/login"
         android:text="Set"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.305"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/cancelButton"
-        android:layout_width="88dp"
-        android:layout_height="wrap_content"
+        android:layout_width="116dp"
+        android:layout_height="64dp"
         android:layout_marginBottom="96dp"
+        android:background="@drawable/login"
         android:text="Cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintHorizontal_bias="0.82"
         app:layout_constraintStart_toStartOf="parent" />
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
