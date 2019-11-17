@@ -51,6 +51,7 @@
             android:layout_height="wrap_content"
             android:text="@string/Directions"
             android:id="@+id/directions"
+            android:background="@drawable/login_orange"
             android:layout_gravity="left" />
     </LinearLayout>
 </LinearLayout>
