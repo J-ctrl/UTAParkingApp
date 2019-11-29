@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        //getSupportActionBar().setIcon(getDrawable(R.drawable.logo));
     }
 
     private void initializeViews() {
