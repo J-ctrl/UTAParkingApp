@@ -9,19 +9,14 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-<<<<<<< HEAD
-=======
 import androidx.annotation.NonNull;
->>>>>>> Final-Michael
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication2.EventsList;
 import com.example.myapplication2.R;
 import com.example.myapplication2.Reminder;
-<<<<<<< HEAD
 
 import java.util.ArrayList;
-=======
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -36,7 +31,6 @@ import java.util.ArrayList;
 
 import javax.security.auth.callback.Callback;
 
->>>>>>> Final-Michael
 public class FilterActivity extends AppCompatActivity{
     ListView listView;
     ListViewAdapter adapter;
@@ -44,16 +38,14 @@ public class FilterActivity extends AppCompatActivity{
     String[] description;
     int[] icon;
     ArrayList<Model> arrayList = new ArrayList<>();
-<<<<<<< HEAD
-=======
-    public String userStatus;
+   public String userStatus;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance(); //gets database instance
     FirebaseAuth mAuth = FirebaseAuth.getInstance(); //gets authorization instance
     FirebaseUser currentUser = mAuth.getCurrentUser();
     DatabaseReference myRef = database.getReference("Users");
 
->>>>>>> Final-Michael
+
 
 
     //OnCreate is in charge of setting all the titles, description, and pictures for each parking lot.
@@ -62,7 +54,6 @@ public class FilterActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_search);
 
-<<<<<<< HEAD
         //Array for each parking lot's name/title
         title = new String[]{"Parking Lot #36",
                              "Parking Lot #F7",
@@ -83,7 +74,6 @@ public class FilterActivity extends AppCompatActivity{
 
         //Array for each parking lot's description
         icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
-=======
 //Array for each parking lot's name/title
         title = new String[]{"Lot F1",
                 "Lot F4",
@@ -162,19 +152,16 @@ public class FilterActivity extends AppCompatActivity{
                 R.drawable.p47, R.drawable.p49, R.drawable.p5051,R.drawable.p5051,
                 R.drawable.p52, R.drawable.p53, R.drawable.p55,R.drawable.p56,
                 R.drawable.ao, R.drawable.gr,R.drawable.mr, R.drawable.ts,R.drawable.uv};
->>>>>>> Final-Michael
 
         listView = findViewById(R.id.listView);
 
         //This loop creates the list of parking lots based on the length of the title array
-<<<<<<< HEAD
         for (int i = 0; i < title.length; i++)
         {
             Model model = new Model(title[i], description[i], icon[i]);
             //Bind all strings in an array
             arrayList.add(model);
         }
-=======
 
         /*
             If the current user's role is student (check from database value) add only those with "Student" or "General" in the description to the arrayList
@@ -208,7 +195,6 @@ public class FilterActivity extends AppCompatActivity{
                 //Bind all strings in an array
                 arrayList.add(model);
             }
->>>>>>> Final-Michael
 
         //pass results to listViewAdapter class
         adapter = new ListViewAdapter(this, arrayList);
@@ -258,10 +244,8 @@ public class FilterActivity extends AppCompatActivity{
 
         if(id == R.id.action_favorites)
         {
-<<<<<<< HEAD
+
             //future functionality here
-=======
->>>>>>> Final-Michael
             openFavoriteListActivity();
             return true;
         }
@@ -289,9 +273,5 @@ public class FilterActivity extends AppCompatActivity{
         Intent intent = new Intent(this,MapBasicActivity.class);
         startActivity(intent);
     }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> Final-Michael
 }

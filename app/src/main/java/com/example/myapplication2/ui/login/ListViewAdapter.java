@@ -1,17 +1,13 @@
 package com.example.myapplication2.ui.login;
 
-<<<<<<< HEAD
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-=======
 import android.content.Context;
->>>>>>> Final-Michael
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +21,6 @@ import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-=======
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,7 +44,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
->>>>>>> Final-Michael
 
 
 public class ListViewAdapter extends BaseAdapter {
@@ -59,9 +53,7 @@ public class ListViewAdapter extends BaseAdapter {
     LayoutInflater inflater;
     List<Model> modellist;
     ArrayList<Model> arrayList;
-<<<<<<< HEAD
    AppCompatActivity Activity ;
-=======
     FirebaseDatabase database = FirebaseDatabase.getInstance(); //gets database instance
     FirebaseAuth mAuth = FirebaseAuth.getInstance(); //gets authorization instance
     FirebaseUser currentUser = mAuth.getCurrentUser();
@@ -69,7 +61,6 @@ public class ListViewAdapter extends BaseAdapter {
 
     DatabaseReference myRef = database.getReference("Users");
 
->>>>>>> Final-Michael
 
     //constructor
     public ListViewAdapter(Context context, List<Model> modellist) {
@@ -85,10 +76,8 @@ public class ListViewAdapter extends BaseAdapter {
         TextView mTitleTv, mDescTv;
         ImageView mIconIv;
         MaterialFavoriteButton FvButton;
-<<<<<<< HEAD
         Button DirectionsBtn;
-=======
->>>>>>> Final-Michael
+
     }
 
 
@@ -123,10 +112,8 @@ public class ListViewAdapter extends BaseAdapter {
             holder.mDescTv = view.findViewById(R.id.mainDescription);
             holder.mIconIv = view.findViewById(R.id.mainIcon);
             holder.FvButton = view.findViewById(R.id.FavButton);
-<<<<<<< HEAD
             holder.DirectionsBtn = view.findViewById(R.id.directions);
-=======
->>>>>>> Final-Michael
+
 
             view.setTag(holder);
         }
@@ -138,7 +125,6 @@ public class ListViewAdapter extends BaseAdapter {
         //set the results into textviews
         holder.mTitleTv.setText(modellist.get(position).getTitle());
         holder.mDescTv.setText(modellist.get(position).getDesc());
-<<<<<<< HEAD
         holder.DirectionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,18 +135,16 @@ public class ListViewAdapter extends BaseAdapter {
         /*This sets the favorite functions for each button in the view - when clicked this sets of the
         Snackbar notification at the bottom of the screen. This function will do future transactions with the
         Firebase Database and update the user's favorite list in the database */
-=======
 
         /*This is the favorite functions for each button in the view - when clicked this sets of the
         Snackbar notification at the bottom of the screen. */
->>>>>>> Final-Michael
+
         holder.FvButton.setOnFavoriteChangeListener(
                 new MaterialFavoriteButton.OnFavoriteChangeListener() {
                     @Override
                     public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
                         if (favorite)
                         {
-<<<<<<< HEAD
                             Snackbar.make(buttonView, "Added to Favorites", Snackbar.LENGTH_SHORT).show(); //displays the notification
                             System.out.println("Added to Favorites.");
 
@@ -169,7 +153,7 @@ public class ListViewAdapter extends BaseAdapter {
                         else
                         {
                             //unfavorite - delete parking lot from user's favorite's list in the database
-=======
+
 
                             //displays the notification
                             Snackbar.make(buttonView, "Added to Favorites", Snackbar.LENGTH_SHORT).show();
@@ -201,12 +185,7 @@ public class ListViewAdapter extends BaseAdapter {
                                 }
                             });
                         }
-                        else //When the user unfavorites it deletes the value from the database
-                        {
-                            String userUid = currentUser.getUid();
-                            myRef.child(userUid).child(modellist.get(position).getTitle()).removeValue();
->>>>>>> Final-Michael
-                        }
+
                     }
                 }
         );
@@ -224,21 +203,14 @@ public class ListViewAdapter extends BaseAdapter {
         });
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> Final-Michael
         return view;
     }
 
     //this method is in charge of the filtering settings for the search functionality
-<<<<<<< HEAD
+
     public void filter(String charText){
-=======
-    public void filter(String charText)
-    {
->>>>>>> Final-Michael
+
 
         charText = charText.toLowerCase(Locale.getDefault());
 

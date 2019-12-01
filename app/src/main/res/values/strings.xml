@@ -80,8 +80,7 @@
         <item name="indoorPositioningModeDraft">DRAFT</item>
     </string-array>
 
-<<<<<<< HEAD
-=======
+
 
     <!-- Drop down menu options for registering users -->
     <string-array name="dropDown">
@@ -90,6 +89,4 @@
     </string-array>
 
 
-
->>>>>>> Final-Michael
 </resources>
