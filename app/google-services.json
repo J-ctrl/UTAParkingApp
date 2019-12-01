@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "853755022509",
+    "firebase_url": "https://uta-parking-d173b.firebaseio.com",
+    "project_id": "uta-parking-d173b",
+    "storage_bucket": "uta-parking-d173b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853755022509:android:61373fc96babc6e97aca24",
+        "android_client_info": {
+          "package_name": "com.example.myapplication2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853755022509-nscjrvtpvql3i0q6svmgmcnv705omj7k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0jMBC012Bm78BFsQxRg1IjquLh7xjb_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853755022509-nscjrvtpvql3i0q6svmgmcnv705omj7k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "853755022509-irqi30h95o7vi0r8vb6fvncil9csfvf9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.uta.UTAParkingApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
