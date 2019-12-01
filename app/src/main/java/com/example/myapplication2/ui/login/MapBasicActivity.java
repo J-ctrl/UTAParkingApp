@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.myapplication2.R;
+import com.here.android.mpa.common.Image;
 import com.here.android.mpa.common.PositioningManager;
 import com.here.android.mpa.mapping.MapMarker;
 import com.here.android.mpa.mapping.OnMapRenderListener;
@@ -46,6 +47,7 @@ import com.here.android.mpa.routing.Router;
 import com.here.android.mpa.routing.RoutingError;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -76,6 +78,7 @@ public class MapBasicActivity extends AppCompatActivity {
     private MapMarker m_positionIndicatorFixed = null;
     private boolean m_foregroundServiceStarted;
     private Button m_calculateRouteBtn;
+    private double m_lastZoomLevelInRoadViewMode = 0.0;
 static GeoCoordinate[] coordinates;
 
  static void post(int position2){position=position2;}
@@ -88,7 +91,7 @@ static GeoCoordinate[] coordinates;
     void initialize() {
         setContentView(R.layout.activity_mapbasic);
         // Search for the map fragment to finish setup by calling init().
-        mapFragment = (AndroidXMapFragment)
+        mapFragment  = (AndroidXMapFragment)
                 getSupportFragmentManager().findFragmentById(R.id.mapfragment);
                 // Set up disk cache path for the map service for this application
                 // It is recommended to use a path under your application folder for storing the disk cache
@@ -167,13 +170,40 @@ static GeoCoordinate[] coordinates;
 
 
         }
-        coordinates = new GeoCoordinate[]{new GeoCoordinate(32.7343284, -97.1131157),
-                new GeoCoordinate(32.732370, -97.114987),
-                new GeoCoordinate(32.727639, -97.111675),
-                new GeoCoordinate(32.728551, -97.107697),
-                new GeoCoordinate(32.731257, -97.119128),
-                new GeoCoordinate(32.726451, -97.112895),
-                new GeoCoordinate(32.724613, -97.112537)
+        coordinates = new GeoCoordinate[]{
+                new GeoCoordinate(32.729268, -97.127543), //F1
+                new GeoCoordinate(32.732375, -97.122312), //F4
+                new GeoCoordinate(32.733801, -97.120605), //F5
+                new GeoCoordinate(32.728752, -97.115576), //F9
+                new GeoCoordinate(32.727640, -97.112867), //F10
+                new GeoCoordinate(32.732637, -97.110429), //F11
+                new GeoCoordinate(32.733160, -97.111566), //F12
+                new GeoCoordinate(32.734949, -97.113723), //F15
+                new GeoCoordinate(32.726360, -97.107596), //F17
+                new GeoCoordinate(32.733343, -97.114077), //14
+                new GeoCoordinate(32.734129, -97.122128), //24
+                new GeoCoordinate(32.724578, -97.130095), //25
+                new GeoCoordinate(32.726983, -97.126949), //26
+                new GeoCoordinate(32.729836, -97.124395), //27
+                new GeoCoordinate(32.733591, -97.121963), //28
+                new GeoCoordinate(32.731216, -97.119699), //30
+                new GeoCoordinate(32.733270, -97.115739), //34
+                new GeoCoordinate(32.734100, -97.115498), //35
+                new GeoCoordinate(32.734299, -97.113269), //36
+                new GeoCoordinate(32.732783, -97.109339), //38
+                new GeoCoordinate(32.727430, -97.111539), //47
+                new GeoCoordinate(32.725990, -97.112810), //49
+                new GeoCoordinate(32.724425, -97.112312), //50
+                new GeoCoordinate(32.723415, -97.110577), //51
+                new GeoCoordinate(32.725942, -97.110491), //52
+                new GeoCoordinate(32.726623, -97.10930),  //53
+                new GeoCoordinate(32.727945, -97.107306), //55
+                new GeoCoordinate(32.724987, -97.108497), //56
+                new GeoCoordinate(32.729751, -97.120929), //AO
+                new GeoCoordinate(32.731522, -97.122871), //GR
+                new GeoCoordinate(32.731927, -97.120810), //MR
+                new GeoCoordinate(32.729862, -97.116818), //TS
+                new GeoCoordinate(32.729787, -97.119251)  //UV
         };
     }
     private void calculateTtaUsingDownloadedTraffic(){
@@ -191,10 +221,12 @@ static GeoCoordinate[] coordinates;
                             @Override
                             public void run() {
                                 final TextView tvDownload = findViewById(R.id.tvTtaInclude);
-
+                                float time = ttaDownloaded.getDuration();
+                                float stime = (time%60);
+                                time = ((time - stime)/60) + stime/100;
                                 if (tvDownload != null) {
-                                    tvDownload.setText("Tta downloaded: " +
-                                            String.valueOf(ttaDownloaded.getDuration()));
+                                    tvDownload.setText("Time till Arrival " +
+                                            String.valueOf(time));
                                 }
                             }
                         });
@@ -262,7 +294,7 @@ static GeoCoordinate[] coordinates;
         dynamicPenalty.setTrafficPenaltyMode(Route.TrafficPenaltyMode.OPTIMAL);
         coreRouter.setDynamicPenalty(dynamicPenalty);
         /* Initialize a RoutePlan */
-        RoutePlan routePlan = new RoutePlan();
+        final RoutePlan routePlan = new RoutePlan();
 
         /*
          * Initialize a RouteOption. HERE Mobile SDK allow users to define their own parameters for the
@@ -283,9 +315,9 @@ static GeoCoordinate[] coordinates;
 
         /* Define waypoints for the route */
         /* START: 4350 Still Creek Dr */
-        RouteWaypoint startPoint = new RouteWaypoint(coordinates[position]);
+        RouteWaypoint startPoint = new RouteWaypoint(new GeoCoordinate(32.729290, -97.110575));
         /* END: Langley BC */
-        RouteWaypoint destination = new RouteWaypoint(coordinates[position+1]);
+        RouteWaypoint destination = new RouteWaypoint(coordinates[position]);
         map.addTransformListener(onTransformListener);
 
         PositioningManager.getInstance().start(PositioningManager.LocationMethod.GPS_NETWORK);
@@ -307,41 +339,69 @@ static GeoCoordinate[] coordinates;
                                                          RoutingError routingError) {
                         /* Calculation is done.Let's handle the result */
                         if (routingError == RoutingError.NONE) {
-                            if (routeResults.get(0).getRoute() != null) {
+                            Route route = routeResults.get(0).getRoute();
 
-                                m_route = routeResults.get(0).getRoute();
-                                /* Create a MapRoute so that it can be placed on the map */
+                            // move the map to the first waypoint which is starting point of
+                            // the route
+                            map.setCenter(routePlan.getWaypoint(0).getNavigablePosition(),
+                                    Map.Animation.NONE);
 
-                                MapRoute mapRoute = new MapRoute(routeResults.get(0).getRoute());
+                            // setting MapUpdateMode to RoadView will enable automatic map
+                            // movements and zoom level adjustments
+                            NavigationManager.getInstance().setMapUpdateMode
+                                    (NavigationManager.MapUpdateMode.ROADVIEW);
 
-                                /* Show the maneuver number on top of the route */
-                                mapRoute.setManeuverNumberVisible(true);
+                            // adjust tilt to show 3D view
+                            map.setTilt(80);
 
-                                /* Add the MapRoute to the map */
-                                map.addMapObject(mapRoute);
+                            // adjust transform center for navigation experience in portrait
+                            // view
+                            m_mapTransformCenter = new PointF(map.getTransformCenter().x, (map
+                                    .getTransformCenter().y * 85 / 50));
+                            map.setTransformCenter(m_mapTransformCenter);
 
-                                /*
-                                 * We may also want to make sure the map view is orientated properly
-                                 * so the entire route can be easily seen.
-                                 */
-                                m_geoBoundingBox = routeResults.get(0).getRoute().getBoundingBox();
-                                map.zoomTo(m_geoBoundingBox, Map.Animation.NONE,
-                                        Map.MOVE_PRESERVE_ORIENTATION);
+                            // create a map marker to show current position
+                            Image icon = new Image();
+                            m_positionIndicatorFixed = new MapMarker();
+                            try {
+                                icon.setImageResource(R.drawable.gps_position);
+                                m_positionIndicatorFixed.setIcon(icon);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
 
+                            m_positionIndicatorFixed.setVisible(true);
+                            m_positionIndicatorFixed.setCoordinate(map.getCenter());
+                            map.addMapObject(m_positionIndicatorFixed);
 
-                                startNavigation();
+                            mapFragment.getPositionIndicator().setVisible(false);
+
+                            NavigationManager.getInstance().setMap(map);
+
+                            // listen to real position updates. This is used when RoadView is
+                            // not active.
+                            PositioningManager.getInstance().addListener(
+                                    new WeakReference<PositioningManager.OnPositionChangedListener>(
+                                            mapPositionHandler));
+
+                            // listen to updates from RoadView which tells you where the map
+                            // center should be situated. This is used when RoadView is active.
+                            NavigationManager.getInstance().getRoadView().addListener(new
+                                    WeakReference<NavigationManager.RoadView.Listener>(roadViewListener));
+                            calculateTtaUsingDownloadedTraffic();
+                            // start navigation simulation travelling at 13 meters per second
+                            NavigationManager.getInstance().simulate(route, 13);
+                            startForegroundService();
+                            addNavigationListeners();
+
                             } else {
                                 Toast.makeText(m_activity,
                                         "Error:route results returned is not valid",
                                         Toast.LENGTH_LONG).show();
                             }
-                        } else {
-                            Toast.makeText(m_activity,
-                                    "Error:route calculation returned error code: " + routingError,
-                                    Toast.LENGTH_LONG).show();
 
-                        }
                     }
+
                 });
     }
 
@@ -408,6 +468,13 @@ static GeoCoordinate[] coordinates;
         m_naviControlButton.setText(R.string.stop_navi);
         /* Configure Navigation manager to launch navigation on current map */
         m_navigationManager.setMap(map);
+
+        // listen to updates from RoadView which tells you where the map
+        // center should be situated. This is used when RoadView is active.
+        NavigationManager.getInstance().getRoadView().addListener(new
+                WeakReference<NavigationManager.RoadView.Listener>(roadViewListener));
+
+        // start navigation simulation travelling at 13 meters per second
         calculateTtaUsingDownloadedTraffic();
 
         /*
@@ -435,6 +502,7 @@ static GeoCoordinate[] coordinates;
                 startForegroundService();
             }
         });
+
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
         /*
@@ -451,6 +519,7 @@ static GeoCoordinate[] coordinates;
          * listeners for demo purpose,please refer to HERE Android SDK API documentation for details
          */
         addNavigationListeners();
+
     }
 
     private void addNavigationListeners() {
@@ -509,78 +578,6 @@ static GeoCoordinate[] coordinates;
         }
     };
 
-    private MapGesture.OnGestureListener gestureListener = new MapGesture.OnGestureListener() {
-        @Override
-        public void onPanStart() {
-
-        }
-
-        @Override
-        public void onPanEnd() {
-        }
-
-        @Override
-        public void onMultiFingerManipulationStart() {
-        }
-
-        @Override
-        public void onMultiFingerManipulationEnd() {
-        }
-
-        @Override
-        public boolean onMapObjectsSelected(List<ViewObject> objects) {
-            return false;
-        }
-
-        @Override
-        public boolean onTapEvent(PointF p) {
-            return false;
-        }
-
-        @Override
-        public boolean onDoubleTapEvent(PointF p) {
-            return false;
-        }
-
-        @Override
-        public void onPinchLocked() {
-        }
-
-        @Override
-        public boolean onPinchZoomEvent(float scaleFactor, PointF p) {
-
-            return false;
-        }
-
-        @Override
-        public void onRotateLocked() {
-        }
-
-        @Override
-        public boolean onRotateEvent(float rotateAngle) {
-            return false;
-        }
-
-        @Override
-        public boolean onTiltEvent(float angle) {
-
-            return false;
-        }
-
-        @Override
-        public boolean onLongPressEvent(PointF p) {
-            return false;
-        }
-
-        @Override
-        public void onLongPressRelease() {
-        }
-
-        @Override
-        public boolean onTwoFingerTapEvent(PointF p) {
-            return false;
-        }
-    };
 
     final private NavigationManager.RoadView.Listener roadViewListener = new NavigationManager.RoadView.Listener() {
         @Override
@@ -591,7 +588,6 @@ static GeoCoordinate[] coordinates;
                     (geoCoordinate).getResult();
         }
     };
-
     final private Map.OnTransformListener onTransformListener = new Map.OnTransformListener() {
         @Override
         public void onMapTransformStart() {
@@ -629,7 +625,124 @@ static GeoCoordinate[] coordinates;
             TrafficUpdater.getInstance().cancelRequest(m_requestInfo.getRequestId());
         }
     }
+    public void onBackPressed() {
+        if (NavigationManager.getInstance().getMapUpdateMode().equals(NavigationManager
+                .MapUpdateMode.NONE)) {
+            resumeRoadView();
+        } else {
+            m_activity.finish();
+        }
+    }
 
+    private PositioningManager.OnPositionChangedListener mapPositionHandler = new PositioningManager.OnPositionChangedListener() {
+        @Override
+        public void onPositionUpdated(PositioningManager.LocationMethod method, GeoPosition position,
+                                      boolean isMapMatched) {
+            if (NavigationManager.getInstance().getMapUpdateMode().equals(NavigationManager
+                    .MapUpdateMode.NONE) && !m_returningToRoadViewMode)
+                // use this updated position when map is not updated by RoadView.
+                m_positionIndicatorFixed.setCoordinate(position.getCoordinate());
+        }
 
+        @Override
+        public void onPositionFixChanged(PositioningManager.LocationMethod method,
+                                         PositioningManager.LocationStatus status) {
+
+        }
+    };
+
+    private void pauseRoadView() {
+        // pause RoadView so that map will stop moving, the map marker will use updates from
+        // PositionManager callback to update its position.
+
+        if (NavigationManager.getInstance().getMapUpdateMode().equals(NavigationManager.MapUpdateMode.ROADVIEW)) {
+            NavigationManager.getInstance().setMapUpdateMode(NavigationManager.MapUpdateMode.NONE);
+            NavigationManager.getInstance().getRoadView().removeListener(roadViewListener);
+            m_lastZoomLevelInRoadViewMode = map.getZoomLevel();
+        }
+    }
+
+    private void resumeRoadView() {
+        // move map back to it's current position.
+        map.setCenter(PositioningManager.getInstance().getPosition().getCoordinate(), Map
+                        .Animation.BOW, m_lastZoomLevelInRoadViewMode, Map.MOVE_PRESERVE_ORIENTATION,
+                80);
+        // do not start RoadView and its listener until the map movement is complete.
+        m_returningToRoadViewMode = true;
+    }
+
+    // application design suggestion: pause roadview when user gesture is detected.
+    private MapGesture.OnGestureListener gestureListener = new MapGesture.OnGestureListener() {
+        @Override
+        public void onPanStart() {
+            pauseRoadView();
+        }
+
+        @Override
+        public void onPanEnd() {
+        }
+
+        @Override
+        public void onMultiFingerManipulationStart() {
+        }
+
+        @Override
+        public void onMultiFingerManipulationEnd() {
+        }
+
+        @Override
+        public boolean onMapObjectsSelected(List<ViewObject> objects) {
+            return false;
+        }
+
+        @Override
+        public boolean onTapEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public boolean onDoubleTapEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public void onPinchLocked() {
+        }
+
+        @Override
+        public boolean onPinchZoomEvent(float scaleFactor, PointF p) {
+            pauseRoadView();
+            return false;
+        }
+
+        @Override
+        public void onRotateLocked() {
+        }
+
+        @Override
+        public boolean onRotateEvent(float rotateAngle) {
+            return false;
+        }
+
+        @Override
+        public boolean onTiltEvent(float angle) {
+            pauseRoadView();
+            return false;
+        }
+
+        @Override
+        public boolean onLongPressEvent(PointF p) {
+            return false;
+        }
+
+        @Override
+        public void onLongPressRelease() {
+        }
+
+        @Override
+        public boolean onTwoFingerTapEvent(PointF p) {
+            return false;
+        }
+    };
 
         }

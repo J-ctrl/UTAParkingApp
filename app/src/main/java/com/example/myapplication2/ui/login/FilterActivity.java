@@ -53,28 +53,7 @@ public class FilterActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actvity_search);
-
         //Array for each parking lot's name/title
-        title = new String[]{"Parking Lot #36",
-                             "Parking Lot #F7",
-                             "Parking Lot #47",
-                             "Parking Lot #LCE",
-                             "Parking Lot #30",
-                             "Parking Lot #49",
-                             "Parking Lot #50 N"};
-
-        //Array for each parking lot's description
-        description = new String[]{"parking lot detail - near the ERB",
-                                   "parking lot detail - near the MAC building",
-                                   "parking lot detail - near the SIER building",
-                                   "parking lot detail - near college park",
-                                   "parking lot detail - near the Physical Education building",
-                                   "parking lot detail #By the UTA Bridge Near SEIR",
-                                   "parking lot detail #Accross from lot 49"};
-
-        //Array for each parking lot's description
-        icon = new int[]{R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark, R.drawable.questionmark};
-//Array for each parking lot's name/title
         title = new String[]{"Lot F1",
                 "Lot F4",
                 "Lot F5",

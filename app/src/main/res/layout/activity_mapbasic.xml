@@ -32,6 +32,7 @@
         android:layout_marginTop="0dp"
         />
 
+
     <fragment
         android:id="@+id/mapfragment"
         class="com.here.android.mpa.mapping.AndroidXMapFragment"
