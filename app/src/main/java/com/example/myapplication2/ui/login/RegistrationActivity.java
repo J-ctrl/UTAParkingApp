@@ -6,9 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
+<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+=======
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Spinner;
+>>>>>>> Final-Michael
 import android.widget.Toast;
 import com.example.myapplication2.R;
 
@@ -17,12 +25,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+<<<<<<< HEAD
+=======
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+>>>>>>> Final-Michael
 
 public class RegistrationActivity extends AppCompatActivity {
 
     private EditText emailTV, passwordTV;
     private Button regBtn;
     private ProgressBar progressBar;
+<<<<<<< HEAD
+=======
+    public Spinner dropDown;
+>>>>>>> Final-Michael
 
     private FirebaseAuth mAuth;
     @Override
@@ -67,9 +86,19 @@ public class RegistrationActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
 
+<<<<<<< HEAD
                             Intent intent;
                             intent = new Intent(RegistrationActivity.this,
                                     LoginActivity.class);
+=======
+
+
+
+                            Intent intent;
+                            intent = new Intent(RegistrationActivity.this,
+                                    LoginActivity.class);
+
+>>>>>>> Final-Michael
                             startActivity(intent);
                         }
                         else {
